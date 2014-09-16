@@ -22,27 +22,27 @@
         <parameter>
             <name>P_SMTP_Port</name>
             <default_value>25</default_value>
-            <description/>
+            <description>SMTP port (default is 25)</description>
         </parameter>
         <parameter>
             <name>P_SMTP_Server</name>
-            <default_value>smtp.cityofchicago.local</default_value>
-            <description/>
+            <default_value>smtp.example.com</default_value>
+            <description>SMTP server address</description>
         </parameter>
         <parameter>
             <name>P_Sender_Address</name>
-            <default_value>data-portal-bot@cityofchicago.org</default_value>
-            <description/>
+            <default_value>data-portal-bot@example.com</default_value>
+            <description>Will appear as the sender&apos;s email address</description>
         </parameter>
         <parameter>
             <name>P_Sender_Name</name>
             <default_value>Data Portal Bot</default_value>
-            <description/>
+            <description>Will appear in &quot;From&quot; field</description>
         </parameter>
         <parameter>
             <name>P_To_Address</name>
-            <default_value>jonathan.levy@cityofchicago.org, tom.schenk@cityofchicago.org, data-portal-bot@cityofchicago.org, ChicagoSquad@socrata.com</default_value>
-            <description/>
+            <default_value>etl-admin@example.com, data-portal-admin@example.com, cdo@example.com</default_value>
+            <description>List of emails to be emailed by this script, comma separated.</description>
         </parameter>
     </parameters>
     <log>
@@ -108,8 +108,8 @@
 this is a safeguard, just in case.</note>
       <xloc>580</xloc>
       <yloc>14</yloc>
-      <width>210</width>
-      <heigth>40</heigth>
+      <width>271</width>
+      <heigth>49</heigth>
       <fontname>Arial</fontname>
       <fontsize>10</fontsize>
       <fontbold>N</fontbold>

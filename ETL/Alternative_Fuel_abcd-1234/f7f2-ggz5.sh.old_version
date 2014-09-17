@@ -1,0 +1,10 @@
+. /home/svc_pentaho/ETL/ETL_Setup.sh
+
+ETL_NAME=Alternative_Fuel_f7f2-ggz5
+ETL_DIR=$ETL_ROOT_DIR/Alternative_Fuel_f7f2-ggz5
+
+echo "ETL $ETL_NAME has started at $NOW."
+
+sh /home/svc_pentaho/data-integration/kitchen.sh -file="$ETL_DIR/$ETL_NAME.kjb" -level=Detailed > "/home/svc_pentaho/Log/${ETL_NAME}_${NOW}.txt"
+
+#The {} notation above allows for two environment variables separated by an underscore.  Without them, you get just the $NOW value.

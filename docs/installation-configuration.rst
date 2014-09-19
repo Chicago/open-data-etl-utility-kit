@@ -27,7 +27,7 @@ Alternatively, one can download the zip file from GitHub and extract the content
 
 Installing & configuring Kettle
 -------------------------------
-Next, we will need to obtain Kettle or Pentaho. Download [Kettle](http://community.pentaho.com/projects/data-integration/) and extract to the ETL directory. 
+Next, we will need to obtain Kettle or Pentaho. Download [Kettle](http://community.pentaho.com/projects/data-integration/) to your computer.
 
 The Kettle installation should allow for easy upgrades to the data integration software without needing to reconfigure any ETLs. Likewise, upgrading to new versions should permit testing. Therefore, Kettle should be installed to a version-specific folder, such as ``data-integration-x.y.z``. Assuming the zipped file is located in ~/Downloads, one could run the following::
 
@@ -86,19 +86,22 @@ Test these settings by opening Kettle and looking at ``kettle.properties`` file.
 Installation on Windows
 =======================
 
-Installing & configuring Kettle
--------------------------------
-Next, we will need to obtain Kettle or Pentaho. Download [Kettle](http://community.pentaho.com/projects/data-integration/) and extract to the ETL directory. Assuming the download is located in ~/Downloads, one could run the following::
+Installing ETL framework
+------------------------
+First, determine a location of the installation of the toolkit. All scripts, programs, and transformations related to ETL processes will remain in this directory.
 
-	$ cd ~/Downloads
-	$ WHAT'S THE UNZIP COMMAND SCRIPT IN WINDOWS??
+Using ``git``::
+
+	$ cd C:\path\to\directory
+	$ git clone
+
+Alternatively, one can download the zip file from GitHub and extract the contents to the above directory.
 
 Installing & configuring Kettle
 -------------------------------
 Next, we will need to obtain Kettle or Pentaho. Download [Kettle](http://community.pentaho.com/projects/data-integration/) and extract to the ETL directory. Assuming the download is located in ~/Downloads, one could run the following::
 
 INSERT MORE INSTRUCTIONS
-
 
 The Kettle installation should allow for easy upgrades to the data integration software without needing to reconfigure any ETLs. Likewise, upgrading to new versions should permit testing.
 
@@ -136,10 +139,9 @@ Add another line and enter ``DATASYNC_DIRECTORY`` as a variable name and ``C:\pa
 
 The ``kettle.properties`` file can also be manually edited. It is typically located under the following directories, depending on your current version of Windows::
 
-+-----------------------------------------------------------+
-| *Windows:* C:\Documents and Settings\<username>\.kettle\  |
-| *Windows Vista and after:* C:\Users\<username>\.kettle    |
-+-----------------------------------------------------------+
+
+| *Windows:* C:\Documents and Settings\<username>\.kettle\
+| *Windows Vista and after:* C:\Users\<username>\.kettle  
 
 Navigate to the appropriate location and open ``kettle.properties``. Add the following lines to the file and save::
 

@@ -93,7 +93,6 @@
     <partitionschemas>
     </partitionschemas>
     <slaveservers>
-         <slaveserver><name>ETL</name><hostname>10.96.12.40</hostname><port>8080</port><webAppName/><username>jlevy</username><password>Encrypted 2be98afc86af4858da51efc43db868af6</password><proxy_hostname/><proxy_port/><non_proxy_hosts/><master>N</master></slaveserver>
     </slaveservers>
     <clusterschemas>
     </clusterschemas>

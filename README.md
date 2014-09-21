@@ -1,9 +1,9 @@
 # ETL Utilities for an Open Data Program
 This toolkit provides several utilities and framework to help governments deploy automated ETLs using the open-source Pentaho data integration (Kettle) software.
 
-Namely, this toolkit will assist with:
-* Load data from a database an load it to a Socrata data portal
-* Steps to integrate with an Exchange server to provide e-mail alerts on the outcome of ETL scripts
+Namely, this toolkit will allow:
+* Loading data from a database and upload it to a Socrata data portal
+* Integrates with an SMTP server to provide e-mail alerts on the outcome of ETL scripts to administrators
 * Handles deployment issues when using multiple operating systems during development
 * Utilities to allow administrators to quickly analyze the log files of ETLs for quick diagnostics
 
@@ -17,7 +17,7 @@ The ETL framework is organized so each function can be modified in one file that
 
 ## Requirements
 The requirements for the recommended configuration require the following pieces of software:
-* [Kettle (or Pentaho) data integration 4.4.0 or lower](http://community.pentaho.com/projects/data-integration/)
+* [Kettle (or Pentaho) data integration](http://community.pentaho.com/projects/data-integration/) - _Note_: This framework has only been tested with Kettle 4.4.0 and lower.
 * Java 1.6 or higher
 * [DataSync (for use with Socrata)](http://socrata.github.io/datasync/)
 * MacOS X, Linux, or Unix (only required for full automation with included scripts)

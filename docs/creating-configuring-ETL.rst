@@ -18,7 +18,10 @@ First, the end-point must be configured. With a Socrata portal,
 Configuring ETL parameters
 --------------------------
 
-Find the [Socrata 4x4](https://support.socrata.com/hc/en-us/articles/202950258-What-is-a-Dataset-UID-or-a-dataset-4x4-) of the newly created dataset.
+Find the `Socrata 4x4 <https://support.socrata.com/hc/en-us/articles/202950258-What-is-a-Dataset-UID-or-a-dataset-4x4->'_ of the newly created dataset.
+
+Configure the DataSync configuration file...
+
 
 
 
@@ -30,7 +33,12 @@ The extract and transformation process can be customized to meet the specific fu
 The ETL template is configured to wait for this step before proceeding with the remaining steps.
 
 
+Editing ETL
+-----------
 
+Changing dataset to new location...
+
+Adding or removing columns...
 
 Suggested naming conventions
 ----------------------------

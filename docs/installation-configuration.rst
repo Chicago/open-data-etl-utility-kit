@@ -4,7 +4,7 @@ Installation & Configuration
 
 This section outlines basic installation procedures for Kettle, the open data ETL framework, and other necessary components. This section also discusses some suggested configurations which will allow for easier maintenance over time.
 
-Installation consists of three parts::
+Installation consists of three parts
 
 *	Cloning or installing toolkit repository
 *	Installing Kettle (or Pentaho)
@@ -148,7 +148,7 @@ Navigate to the appropriate location and open ``kettle.properties``. Add the fol
 	ETL_DIRECTORY = C:\path\to\directory\open-data-etl-utility-kit
 	DATASYNC_DIRECTORY = C:\path\to\directory\open-data-etl-utility-kit\DataSync
 
-	INSERT SCREENSHOT
+INSERT SCREENSHOT
 
 Test these settings by opening Kettle and looking at ``kettle.properties`` file. Find Kettle and run spoon.bat or run the following in a command prompt::
 

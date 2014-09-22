@@ -42,7 +42,7 @@ Show all log files
 
 **Description:** Shows all of the log files associated with a dataset.
 
-**Usage:** Open the terminal and type the name of a dataset:
+**Usage:** Open the terminal and type the name of a dataset::
 	
 	$ cd /path/to/directory/open-data-etl-utility-kit/
 	$ sh Log/A_DatasetLogs.sh Name_of_dataset
@@ -56,7 +56,7 @@ Summarize ETL run times
 
 **Description:** Shows the runtime for ETLs with a dataset.
 
-**Usage:** Open the terminal and type the name of a dataset:
+**Usage:** Open the terminal and type the name of a dataset::
 
 	$ cd /path/to/directory/open-data-etl-utility-kit/
 	$ sh Log/A_ETLRuntimes.sh Name_of_dataset
@@ -68,9 +68,9 @@ Show today's ETL logs
 
 **File:** Log/A_TodayLogs.sh (MacOS X/Linux/Unix only)
 
-**Description:** Shows log files which were created oday
+**Description:** Shows log files which were created today
 
-**Usage:** Open the terminal and run the command:
+**Usage:** Open the terminal and run the command::
 
 	$ sh /path/to/directory/open-data-etl-utility-kit/Log/A_odayLogs.sh
 

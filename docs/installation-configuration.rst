@@ -192,6 +192,6 @@ After completing this section, the framework should resemble the following struc
 *	ETL - will contain subfolders pertaining to each ETL (e.g., hello-world). These directories will contain the logic necessary to extract and transform the data for the portal. If you use our templates, each ETL will call to the ``Utilities`` directory to complete additional tasks.
 *	ETL/Utilities - will contain generic steps used by ETLs, such as sending email alerts and preparing OS-level variables to use with DataSync.
 *	Log - The recommended setup will direct Kettle log files to this directory using the ETL name and timestamp. If desired, it can serve as a historical repository of ETL performance and logs for diagnostics. This directory contains serveral bash scripts (Linux/MacOS X/Unix only) that make it easier to 
-*	DataSync - contains the Socrata DataSync jar file. Will be called by ETL scripts to post data to the portal. All parameters and configuration will be set in Kettle.
+*	DataSync - contains configuration files for DataSync. The actual DataSync installation can be placed in your preferred directory.
 *	data-integration - a link which directs to the directory of Kettle being used
 *	data-integration-x.y.z - the Kettle application files.

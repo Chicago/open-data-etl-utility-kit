@@ -32,7 +32,8 @@ To execute, run the transformation (F9) and input the appropriate `4x4 <http://d
 *	Index last modified date and time
 *	Username who last updated data
 
-INSERT SCREENSHOT
+.. image:: images/show_update_times_of_view_prompt.png
+   :alt: Prompt showing update results
 
 Show all log files
 -------------------

@@ -16,7 +16,7 @@ Checking last-updated information
 .. image:: images/show_update_times_of_view_baseURL_config.png
    :alt: Setting baseURL
 
-To execute, run the transformation (F9) and input the appropriate [4x4](http://dev.socrata.com/docs/endpoints.html) as a value for the PARAM_four-by-four parameter, then press "OK"
+To execute, run the transformation (F9) and input the appropriate `4x4 <http://dev.socrata.com/docs/endpoints.html>`_ as a value for the PARAM_four-by-four parameter, then press "OK"
 
 .. image:: images/show_update_times_of_view_4x4_config.png
    :alt: Inputting 4x4

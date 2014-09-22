@@ -13,11 +13,13 @@ Checking last-updated information
 
 **Usage:** Open Show_Update_Times_of_View.ktr in Kettle/Pentaho. For the initial setup, open the "Inputs" step and replace baseURL parameter with the URL for a specific data portal (e.g., opendata.socrata.com, data.cityofchicago.org). 
 
-INSERT SCREENSHOT
+.. image:: images/show_update_times_of_view_baseURL_config.png
+   :alt: Setting baseURL
 
 To execute, run the transformation (F9) and input the appropriate [4x4](http://dev.socrata.com/docs/endpoints.html) as a value for the PARAM_four-by-four parameter, then press "OK"
 
-INSERT SCREENSHOT
+.. image:: images/show_update_times_of_view_4x4_config.png
+   :alt: Inputting 4x4
 
 **Returns:** If successful, it will return a prompt window with the following fields:
 

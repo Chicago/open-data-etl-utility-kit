@@ -7,7 +7,7 @@
     <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>&#x2f;</directory>
+    <directory>&#47;</directory>
     <parameters>
     </parameters>
     <log>
@@ -17,7 +17,7 @@
 <size_limit_lines/>
 <interval/>
 <timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field></trans-log-table>
 <perf-log-table><connection/>
 <schema/>
 <table/>
@@ -34,11 +34,6 @@
 <table/>
 <timeout_days/>
 <field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
-<metrics-log-table><connection/>
-<schema/>
-<table/>
-<timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
     </log>
     <maxdate>
       <connection/>
@@ -63,14 +58,13 @@
     <partitionschemas>
     </partitionschemas>
     <slaveservers>
-         <slaveserver><name>ETL</name><hostname>10.96.12.40</hostname><port>8080</port><webAppName/><username>jlevy</username><password>Encrypted 2be98afc86af4858da51efc43db868af6</password><proxy_hostname/><proxy_port/><non_proxy_hosts/><master>N</master></slaveserver>
     </slaveservers>
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2014&#x2f;05&#x2f;02 09&#x3a;51&#x3a;26.872</created_date>
+  <created_date>2014&#47;05&#47;02 09:51:26.872</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;05&#x2f;02 09&#x3a;51&#x3a;26.872</modified_date>
+  <modified_date>2014&#47;05&#47;02 09:51:26.872</modified_date>
   </info>
   <notepads>
     <notepad>
@@ -96,21 +90,12 @@
     </notepad>
   </notepads>
   <order>
-  <hop> <from>Get Variables</from><to>Characters to Strip</to><enabled>Y</enabled> </hop>
-  <hop> <from>Characters to Strip</from><to>Write to log</to><enabled>Y</enabled> </hop>
-  <hop> <from>Characters to Strip</from><to>Strip out file&#x3a;&#x2f;&#x2f; or file&#x3a;&#x2f;&#x2f;&#x2f;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Identify last row in a stream</from><to>Only pass one row</to><enabled>Y</enabled> </hop>
-  <hop> <from>Only pass one row</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
-  <hop> <from>Mapping input specification</from><to>Identify last row in a stream</to><enabled>Y</enabled> </hop>
-  <hop> <from>Only pass one row</from><to>Get Variables</to><enabled>Y</enabled> </hop>
-  <hop> <from>Strip out file&#x3a;&#x2f;&#x2f; or file&#x3a;&#x2f;&#x2f;&#x2f;</from><to>Mapping output specification</to><enabled>Y</enabled> </hop>
-  </order>
+  <hop> <from>Get Variables</from><to>Characters to Strip</to><enabled>Y</enabled> </hop>  <hop> <from>Characters to Strip</from><to>Write to log</to><enabled>Y</enabled> </hop>  <hop> <from>Characters to Strip</from><to>Strip out file:&#47;&#47; or file:&#47;&#47;&#47;</to><enabled>Y</enabled> </hop>  <hop> <from>Identify last row in a stream</from><to>Only pass one row</to><enabled>Y</enabled> </hop>  <hop> <from>Only pass one row</from><to>Dummy (do nothing)</to><enabled>Y</enabled> </hop>  <hop> <from>Mapping input specification</from><to>Identify last row in a stream</to><enabled>Y</enabled> </hop>  <hop> <from>Only pass one row</from><to>Get Variables</to><enabled>Y</enabled> </hop>  <hop> <from>Strip out file:&#47;&#47; or file:&#47;&#47;&#47;</from><to>Mapping output specification</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Characters to Strip</name>
     <type>ScriptValueMod</type>
     <description/>
     <distribute>N</distribute>
-    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -120,7 +105,36 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xa;&#xa;var OSType&#xa;var CharactersToStrip  &#x2f;&#x2f;8 for Windows, 7 for Linux&#xa;&#xa;var WinPosition &#x3d; OS.indexOf&#x28;&#x22;Windows&#x22;&#x29;&#xa;var LinuxPosition &#x3d; OS.indexOf&#x28;&#x22;Linux&#x22;&#x29;&#xa;var MacPosition &#x3d; OS.indexOf&#x28;&#x22;Mac&#x22;&#x29;&#xa;&#xa;if &#x28;WinPosition &#x3e;&#x3d; 0&#x29;&#xa;	&#x7b;&#xa;	OSType &#x3d; &#x22;Windows&#x22;&#x3b;&#xa;	CharactersToStrip &#x3d; 8&#x3b;&#xa;	&#x7d;&#xa;else if &#x28;LinuxPosition &#x3e;&#x3d;0&#x29;&#xa;	&#x7b;&#xa;	OSType &#x3d; &#x22;Linux&#x22;&#x3b;&#xa;	CharactersToStrip &#x3d; 7&#x3b;&#xa;	&#x7d;&#xa;else if &#x28;MacPosition &#x3e;&#x3d;0&#x29;&#xa;	&#x7b;&#xa;	OSType &#x3d; &#x22;Mac&#x22;&#x3b;&#xa;	CharactersToStrip &#x3d; 7&#x3b;&#xa;	&#x7d;&#xa;else&#xa;	&#x7b;&#xa;	OSType &#x3d; &#x22;Unknown - Guessing at Characters to Strip. Job may fail.&#x22;&#x3b;&#xa;	CharactersToStrip &#x3d; 7&#x3b;&#xa;	&#x7d;&#xa;</jsScript_script>
+        <jsScript_script>&#47;&#47;Script here
+
+var OSType
+var CharactersToStrip  &#47;&#47;8 for Windows, 7 for Linux
+
+var WinPosition = OS.indexOf(&quot;Windows&quot;)
+var LinuxPosition = OS.indexOf(&quot;Linux&quot;)
+var MacPosition = OS.indexOf(&quot;Mac&quot;)
+
+if (WinPosition &gt;= 0)
+	{
+	OSType = &quot;Windows&quot;;
+	CharactersToStrip = 8;
+	}
+else if (LinuxPosition &gt;=0)
+	{
+	OSType = &quot;Linux&quot;;
+	CharactersToStrip = 7;
+	}
+else if (MacPosition &gt;=0)
+	{
+	OSType = &quot;Mac&quot;;
+	CharactersToStrip = 7;
+	}
+else
+	{
+	OSType = &quot;Unknown - Guessing at Characters to Strip. Job may fail.&quot;;
+	CharactersToStrip = 7;
+	}
+</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>OSType</name>
         <rename>OSType</rename>
         <type>String</type>
@@ -142,11 +156,10 @@
     </step>
 
   <step>
-    <name>Dummy &#x28;do nothing&#x29;</name>
+    <name>Dummy (do nothing)</name>
     <type>Dummy</type>
     <description/>
     <distribute>Y</distribute>
-    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -165,7 +178,6 @@
     <type>GetVariable</type>
     <description/>
     <distribute>Y</distribute>
-    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -174,7 +186,7 @@
     <fields>
       <field>
         <name>OS</name>
-        <variable> &#x24;&#x7b;os.name&#x7d;</variable>
+        <variable> ${os.name}</variable>
         <type>String</type>
         <format/>
         <currency/>
@@ -198,7 +210,6 @@
     <type>DetectLastRow</type>
     <description/>
     <distribute>Y</distribute>
-    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -218,7 +229,6 @@
     <type>MappingInput</type>
     <description/>
     <distribute>N</distribute>
-    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -252,7 +262,6 @@
     <type>MappingOutput</type>
     <description/>
     <distribute>Y</distribute>
-    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -271,19 +280,18 @@
     <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
-    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
            </partitioning>
 <send_true_to>Get Variables</send_true_to>
-<send_false_to>Dummy &#x28;do nothing&#x29;</send_false_to>
+<send_false_to>Dummy (do nothing)</send_false_to>
     <compare>
 <condition>
  <negated>N</negated>
  <leftvalue>Last_Row</leftvalue>
- <function>&#x3d;</function>
+ <function>=</function>
  <rightvalue/>
  <value><name>constant</name><type>Boolean</type><text>Y</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
     </compare>
@@ -296,25 +304,24 @@
     </step>
 
   <step>
-    <name>Strip out file&#x3a;&#x2f;&#x2f; or file&#x3a;&#x2f;&#x2f;&#x2f;</name>
+    <name>Strip out file:&#47;&#47; or file:&#47;&#47;&#47;</name>
     <type>Formula</type>
     <description/>
     <distribute>N</distribute>
-    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
            </partitioning>
        <formula><field_name>File</field_name>
-<formula_string>Right&#x28;&#x5b;File&#x5d;&#x3b;Len&#x28;&#x5b;File&#x5d;&#x29;-&#x5b;CharactersToStrip&#x5d;&#x29;</formula_string>
+<formula_string>Right([File];Len([File])-[CharactersToStrip])</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
 <replace_field>File</replace_field>
 </formula>
        <formula><field_name>ControlFile</field_name>
-<formula_string>Right&#x28;&#x5b;ControlFile&#x5d;&#x3b;Len&#x28;&#x5b;ControlFile&#x5d;&#x29;-&#x5b;CharactersToStrip&#x5d;&#x29;</formula_string>
+<formula_string>Right([ControlFile];Len([ControlFile])-[CharactersToStrip])</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -333,7 +340,6 @@
     <type>WriteToLog</type>
     <description/>
     <distribute>Y</distribute>
-    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -341,9 +347,7 @@
            </partitioning>
       <loglevel>log_level_basic</loglevel>
       <displayHeader>Y</displayHeader>
-      <limitRows>N</limitRows>
-      <limitRowsNumber>5</limitRowsNumber>
-      <logmessage>The operating system information and OS-specific settings&#x3a;</logmessage>
+      <logmessage>The operating system information and OS-specific settings:</logmessage>
     <fields>
       <field>
         <name>OS</name>
@@ -368,5 +372,4 @@
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>
    <slave_transformation>N</slave_transformation>
-
 </transformation>

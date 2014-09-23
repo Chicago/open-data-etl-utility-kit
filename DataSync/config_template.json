@@ -1,0 +1,16 @@
+{
+    "domain": "https://data.metropolis.gov",
+    "username": "superman@metropolis.gov[This part in brackets is here to prevent accidentally locking the Socrata account if run with a valid username but bad password. Remove it after entering the password.]",
+    "password": "[Redacted for security. Fill in before using.]",
+    "appToken": "[Redacted for security. Fill in before using.]",
+    "adminEmail": "clark.kent@metropolis.gov",
+    "emailUponError": "true",
+    "logDatasetID": "abcd-1234",
+    "outgoingMailServer": "smtp.metropolis.gov",
+    "smtpPort": "25",
+    "sslPort": "",
+    "smtpUsername": "",
+    "smtpPassword": "",
+    "filesizeChunkingCutoffMB": "10",
+    "numRowsPerChunk": "50000"
+}

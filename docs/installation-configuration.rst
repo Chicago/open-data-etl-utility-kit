@@ -131,7 +131,7 @@ Launch Kettle by finding and launching spoon.bat, or, run the following in a com
 
 Once Kettle launches, selected Edit > Edit the kettle.properties file::
 
-	INSERT SCREENSHOT
+INSERT SCREENSHOT
 
 Right-click to insert a new line. Once a blank line is available, add ``ETL_DIRECTORY`` as a variable name and add the path to your ETL directory under value (e.g., ``C:\path\to\directory\open-data-utility-kit``).
 
@@ -184,14 +184,16 @@ After completing this section, the framework should resemble the following struc
 
 	*	Log
 	*	DataSync
+	*	Tools
 	*	data-integration
 	*	data-integration-x.y.z
 
 ``open-data-etl-kit`` may be renamed to meet your preferences. Each directory will have the following responsibilities:
 
-*	ETL - will contain subfolders pertaining to each ETL (e.g., hello-world). These directories will contain the logic necessary to extract and transform the data for the portal. If you use our templates, each ETL will call to the ``Utilities`` directory to complete additional tasks.
-*	ETL/Utilities - will contain generic steps used by ETLs, such as sending email alerts and preparing OS-level variables to use with DataSync.
-*	Log - The recommended setup will direct Kettle log files to this directory using the ETL name and timestamp. If desired, it can serve as a historical repository of ETL performance and logs for diagnostics. This directory contains serveral bash scripts (Linux/MacOS X/Unix only) that make it easier to 
-*	DataSync - contains configuration files for DataSync. The actual DataSync installation can be placed in your preferred directory.
-*	data-integration - a link which directs to the directory of Kettle being used
-*	data-integration-x.y.z - the Kettle application files.
+*	**ETL** - will contain subfolders pertaining to each ETL (e.g., hello-world). These directories will contain the logic necessary to extract and transform the data for the portal. If you use our templates, each ETL will call to the ``Utilities`` directory to complete additional tasks.
+*	**ETL/Utilities** - will contain generic steps used by ETLs, such as sending email alerts and preparing OS-level variables to use with DataSync.
+*	**Log** - The recommended setup will direct Kettle log files to this directory using the ETL name and timestamp. If desired, it can serve as a historical repository of ETL performance and logs for diagnostics. This directory contains serveral bash scripts (Linux/MacOS X/Unix only) that make it easier to 
+*	**DataSync** - contains configuration files for DataSync. The actual DataSync installation can be placed in your preferred directory.
+*	**Tools** - contains tools to help with administering ETL processes.
+*	**data-integration** - a link which directs to the directory of Kettle being used
+*	**data-integration-x.y.z** - the Kettle application files.

@@ -2,6 +2,14 @@
 Open Data ETL Toolkit |release|
 ===============================
 
+.. toctree::
+   :maxdepth: 1
+
+   installation-configuration
+   creating-configuring-ETL
+   setting-up-automation
+   utilities-for-administering-etls
+
 This toolkit provides several utilities and framework to help governments deploy automated ETLs using the open-source Pentaho data integration (Kettle) software.
 
 Namely, this toolkit will assist with:

@@ -179,3 +179,17 @@ After completing this section, the framework should resemble the following struc
 *	**Tools** - contains tools to help with administering ETL processes.
 *	**data-integration** - a link which directs to the directory of Kettle being used
 *	**data-integration-x.y.z** - the Kettle application files.
+
+Setting-up Email
+================
+
+Open ``open-data-etl-kit/ETL/Utilities/ETL_Completion_E-Mail.ktr`` in Kettle. Select ``Edit -> Settings`` and select the Parameters tab. Enter the appropriate values for:
+
+* **P_SMTP_Port** - SMTP port (default is 25)
+* **P_SMTP_Server** - SMTP server address. The machine running the ETL will need be able to access that server
+* **P_Sender_Address** - Will appear as the sender's email address
+* **P_Sender_Name** - Will in the "From" field.
+* **P_To_Address** - List of emails, comma separated.
+
+.. image:: images/email-configuration.PNG
+   :alt: Configuring emailing for automated alerts

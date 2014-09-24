@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Creating &amp; Configuring an ETL &mdash; open-data-etl-tool-kit 1.0r1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0r1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="open-data-etl-tool-kit 1.0r1 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">open-data-etl-tool-kit 1.0r1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="creating-configuring-an-etl">
+<h1>Creating &amp; Configuring an ETL<a class="headerlink" href="#creating-configuring-an-etl" title="Permalink to this headline">¶</a></h1>
+<p>This section will walk-through the creation of an ETL. Launching a new ETL requires the following steps:</p>
+<ul class="simple">
+<li>Prepare the end-point (e.g., Socrata) with the columns and data set name.</li>
+<li>Configure the ETL parameters (e.g., 4x4 ID) and control file.</li>
+<li>Write an ETL</li>
+</ul>
+<div class="section" id="initial-preparation">
+<h2>Initial preparation<a class="headerlink" href="#initial-preparation" title="Permalink to this headline">¶</a></h2>
+<p>First, the end-point must be configured. With a Socrata portal, create all of the columns with API field names. If you have an initial extract, a recommended workflow is to upload it to the dataset. Otherwise, the columns can be created manually by the user.</p>
+<p>Find the <a class="reference external" href="https://support.socrata.com/hc/en-us/articles/202950258-What-is-a-Dataset-UID-or-a-dataset-4x4-">Socrata 4x4</a> of the newly created dataset.</p>
+<p>Create a new folder with the dataset name and 4x4 in the <tt class="docutils literal"><span class="pre">ETL</span></tt> directory (i.e., <tt class="docutils literal"><span class="pre">open-data-etl-utility-kit/ETL/Data_Set_Name_abcd-1234</span></tt>).</p>
+</div>
+<div class="section" id="write-etl">
+<h2>Write ETL<a class="headerlink" href="#write-etl" title="Permalink to this headline">¶</a></h2>
+<p>A basic template of a new ETL is at <tt class="docutils literal"><span class="pre">open-data-etl-utility-kit/ETL_Template.ktr</span></tt>. Copy it to the new directory with a name maching the directory, such as:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ cp ETL_Template.ktr ETL/Data_Set_Name_abcd-1234/Data_Set_Name_abcd-1234.ktr
+</pre></div>
+</div>
+<img alt="Layout of the basic ETL template" src="_images/etl_template.png" />
+<p>Open the file in Kettle. Several steps are included, but the following items should not be modified:</p>
+<ul class="simple">
+<li>Get Variables</li>
+<li>Prepare_for_DataSyncSSync (sub-transformation)</li>
+<li>Wait for text file</li>
+<li>DataSync HTTP (sub-transformation)</li>
+<li>DSResult</li>
+<li>Copy rows to result</li>
+<li>Text file output</li>
+</ul>
+<p>Users should modify the data extraction (such as Read Table or JSON Input) and any custom transformation.</p>
+</div>
+<div class="section" id="configuring-etl-parameters">
+<h2>Configuring ETL parameters<a class="headerlink" href="#configuring-etl-parameters" title="Permalink to this headline">¶</a></h2>
+<p>In Kettle, select <tt class="docutils literal"><span class="pre">Edit</span> <span class="pre">-&gt;</span> <span class="pre">Settings...</span></tt>, then click on the &#8220;Parameters&#8221; tab. Fill-in the appropriate fields for each parameter, typically along the following lines:</p>
+<ul class="simple">
+<li><strong>P_ControlFile</strong> - Name of control file (e.g., Data_Set_Name_control.json)</li>
+<li><strong>P_DatasetID</strong> - Dataset 4x4 (e.g., abcd-1234)</li>
+<li><strong>P_File</strong> - File name of the file DataSync should use for the update (e.g., Data_Set_Name_abcd-1234.csv)</li>
+</ul>
+<p>Move the DataSync configuration template file (<tt class="docutils literal"><span class="pre">_control.json</span></tt>) to the new directory, renaming it in the process:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ cp _config.json ETL/Data_Set_Name_abcd-1234/Data_Set_Name_control.json
+</pre></div>
+</div>
+<p>Edit the configuration file by inserting the appropriate API field names.</p>
+</div>
+<div class="section" id="suggested-naming-conventions">
+<h2>Suggested naming conventions<a class="headerlink" href="#suggested-naming-conventions" title="Permalink to this headline">¶</a></h2>
+<p>It can be difficult to manage dozens, if not hundreds, of ETLs. The City of Chicago data science team names each folder and Kettle transformation file with the same naming schema: <tt class="docutils literal"><span class="pre">Name_of_file_abcd-1234</span></tt>, where <tt class="docutils literal"><span class="pre">abcd-1234</span></tt> is the unique four-by-four of the dataset. For instance, the city&#8217;s <a class="reference external" href="https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2">crime data</a> is saved under the folder <tt class="docutils literal"><span class="pre">Crimes_2001_to_present-ijzp-q8t2</span></tt>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Creating &amp; Configuring an ETL</a><ul>
+<li><a class="reference internal" href="#initial-preparation">Initial preparation</a></li>
+<li><a class="reference internal" href="#write-etl">Write ETL</a></li>
+<li><a class="reference internal" href="#configuring-etl-parameters">Configuring ETL parameters</a></li>
+<li><a class="reference internal" href="#suggested-naming-conventions">Suggested naming conventions</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/creating-configuring-ETL.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">open-data-etl-tool-kit 1.0r1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Tom Schenk Jr., Jonathan Levy.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

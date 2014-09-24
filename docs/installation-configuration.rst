@@ -155,16 +155,15 @@ the contents to the above directory.
 Installing & configuring Kettle
 -------------------------------
 
-Next, we will need to obtain Kettle or Pentaho. Download
-[Kettle](http://community.pentaho.com/projects/data-integration/) and
-extract to the ETL directory. Assuming the download is located in
-~/Downloads, one could run the following::
-
-INSERT MORE INSTRUCTIONS
+Next, we will need to obtain Kettle or Pentaho. Download `Kettle
+<http://community.pentaho.com/projects/data-integration/>`_ to your
+computer.
 
 The Kettle installation should allow for easy upgrades to the data
 integration software without needing to reconfigure any
-ETLs. Likewise, upgrading to new versions should permit testing.
+ETLs. Likewise, upgrading to new versions should permit
+testing. Therefore, Kettle should be installed to a version-specific
+folder, such as ``data-integration-x.y.z``. 
 
 Install Kettle to ``data-integration-x.y.z``, where ``x.y.z`` is the
 version number (e.g., 4.4.0).

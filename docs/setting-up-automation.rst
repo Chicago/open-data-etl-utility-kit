@@ -26,6 +26,11 @@ Each file will need to be edited with the appropriate the name of the KTR file w
 
 After editing, save the file.
 
+Finally, edit ``open-data-etl-utility-kit/ETL/ETL_Setup.sh`` to include the file path to Java and the ETL directory::
+
+	PATH=$PATH:/path/to/jdk/bin
+	ETL_ROOT_DIR=/path/to/directory/open-data-etl-utility-kit/ETL
+
 Setting-up Timing
 -----------------
 

@@ -1,4 +1,4 @@
-. /home/svc_pentaho/ETL/ETL_Setup.sh
+. /path/to/directory/open-data-etl-utility-kit/ETL/ETL_Setup.sh
 
 ETL_NAME=Name_of_KTR_file_no_extension
 ETL_DIR_RELATIVE=Directory_containing_KTR_file/

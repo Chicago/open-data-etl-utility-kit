@@ -1,0 +1,22 @@
+{
+  "action" : "Replace",
+  "csv" :
+    {
+      "ignoreServerLatLong" : false,
+      "fixedTimestampFormat" : "MM/dd/yyyy",
+      "separator" : ",",
+      "timezone" : "UTC",
+      "skip" : 0,
+      "encoding" : "utf-8",
+      "trimWhitespace" : true,
+      "overrides" : {},
+      "quote" : "\"",
+      "emptyTextIsNull" : true,
+      "escape" : "\u0000",
+      "columns" :
+      ["api_name_1","api_name_2","api_name_3"], // Edit this line to include the real set of api_name
+      "trimServerWhitespace" : true,
+      "floatingTimestampFormat" : "MM/dd/yyyy",
+      "syntheticLocations" : {}
+    }
+}

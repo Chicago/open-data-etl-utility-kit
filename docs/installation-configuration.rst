@@ -9,7 +9,7 @@ Installation consists of three parts
 *	Cloning or installing toolkit repository
 *	Installing Kettle (or Pentaho)
 *	Installing Socrata DataSync
-*	Configuring Kettle installation
+*	Configuring Kettle and DataSync installation
 
 Installation on Mac OS X, Linux, or Unix
 ========================================
@@ -27,9 +27,9 @@ Alternatively, one can download the zip file from GitHub and extract the content
 
 Installing & configuring Kettle
 -------------------------------
-Next, we will need to obtain Kettle or Pentaho. Download [Kettle](http://community.pentaho.com/projects/data-integration/) to your computer.
+Next, we will need to obtain Kettle or Pentaho. Download `Kettle <http://community.pentaho.com/projects/data-integration/>`_ to your computer.
 
-The Kettle installation should allow for easy upgrades to the data integration software without needing to reconfigure any ETLs. Likewise, upgrading to new versions should permit testing. Therefore, Kettle should be installed to a version-specific folder, such as ``data-integration-x.y.z``. Assuming the zipped file is located in ~/Downloads, one could run the following::
+The Kettle installation should allow for easy upgrades to the data integration software without needing to reconfigure any ETLs. Likewise, upgrading to new versions should permit testing. Therefore, Kettle should be installed to a version-specific folder, such as ``data-integration-x.y.z``. Assuming the zipped file is located in ``~/Downloads``, one could run the following::
 
 	$ cd ~/Downloads
 	$ unzip pdi-ce-4.4.0-stable.zip -d path/to/directory/open-data-etl-utility-kit
@@ -46,7 +46,16 @@ Installing DataSync
 -------------------
 This framework uses Socrata DataSync to post data to the portal. This utility is *only* compatible with Socrata portals. Fortunately, this utility handles incremental updates and upserting without additional logic in the ETL. 
 
-FILL-IN THE REST OF INSTRUCTIONS
+You may install DataSync to any directory. Later configuration will direct Kettle to the correct location. 
+
+
+You can configure DataSync to run on a "headless" Linux machine--a Linux server which is only accessible through a command prompt. Running DataSync on a headless machine requires configuration to pass the domain, username, password, and token without a graphical user interface (GUI). Instructions on configuring a headless is available on the `DataSync support site <http://socrata.github.io/datasync/guides/setup-standard-job-headless.html>`_. The ``DataSync`` directory contains templates for the config.json file 
+
+If you installed DataSync to another directory, such as ``/path/to/DataSync``, then you must edit ``/path/to/directory/open-data-etl-utility-kit/DataSync/load_preferences.sh``. Specifically, the script must now read::
+	
+	java -jar /path/to/DataSync/datasync.jar --config config.json --jobType LoadPreferences
+
+In order for later automation.
 
 Setting-up default directories
 ------------------------------
@@ -55,17 +64,18 @@ Users will need to define two environmental variables for their Kettle installat
 *	Location of the DataSync installation (e.g., /path/to/directory/open-data-utility-kit/DataSync)
 This configuration will only need to be adjusted once for each environment. It will also allow for each deployment of ETLs across multiple operating systems without needing to configure the ETL itself.
 
-Launch Kettle by finding and launching spoon.bat, or, run the following in a command prompt::
+Launch Kettle by finding and launching spoon.sh, or, run the following in a command prompt::
 
 	> sh /path/to/directory/open-data-utility-kit/data-integration/spoon.sh
 
 Once Kettle launches, selected Edit > Edit the kettle.properties file::
 
-INSERT SCREENSHOT
-
 Right-click to insert a new line. Once a blank line is available, add ``ETL_DIRECTORY`` as a variable name and add the path to your ETL directory under value (e.g., ``/path/to/directory/open-data-utility-kit``).
 
 Add another line and enter ``DATASYNC_DIRECTORY`` as a variable name and ``/path/to/directory/open-data-utility-kit/DataSync``
+
+.. image:: images/kettle.properties_configuration_nix.PNG
+   :alt: Configuring kettle.properties on MacOS X/Linux/Unix
 
 The ``kettle.properties`` file can also be manually edited. It is typically located under the following directories, depending on your current version of Windows::
 
@@ -73,14 +83,8 @@ The ``kettle.properties`` file can also be manually edited. It is typically loca
 
 Navigate to the appropriate location and open ``kettle.properties``. Add the following lines to the file and save::
 
-	ETL_DIRECTORY = /path/to/directory/open-data-utility-kit
-	DATASYNC_DIRECTORY = /path/to/directory/open-data-utility-kit/DataSync
-
-INSERT SCREENSHOT
-
-Test these settings by opening Kettle and looking at ``kettle.properties`` file. Find Kettle and run spoon.bat or run the following in a command prompt::
-
-	> sh /path/to/directory/open-data-utility-kit/data-integration/spoon.sh
+	ETL_DIRECTORY = /path/to/DataSync
+	DATA_SYNC_DIRECTORY = /path/to/directory/open-data-utility-kit/DataSync
 
 
 Installation on Windows
@@ -131,11 +135,12 @@ Launch Kettle by finding and launching spoon.bat, or, run the following in a com
 
 Once Kettle launches, selected Edit > Edit the kettle.properties file::
 
-INSERT SCREENSHOT
+.. image:: images/kettle.properties_configuration_windows.PNG
+   :alt: Configuring kettle.properties on Windows
 
-Right-click to insert a new line. Once a blank line is available, add ``ETL_DIRECTORY`` as a variable name and add the path to your ETL directory under value (e.g., ``C:\path\to\directory\open-data-utility-kit``).
+Right-click to insert a new line. Once a blank line is available, add ``ETL_DIRECTORY`` as a variable name and add the path to your ETL directory under value (e.g., ``C:/path/to/directory/open-data-utility-kit``).
 
-Add another line and enter ``DATASYNC_DIRECTORY`` as a variable name and ``C:\path\to\directory\open-data-utility-kit\DataSync``
+Add another line and enter ``DATA_SYNC_DIRECTORY`` as a variable name and ``C:/path/to/directory/open-data-utility-kit/DataSync``. It is recommended to use forward-slashes to maintain compatibility with Linux deployment.
 
 The ``kettle.properties`` file can also be manually edited. It is typically located under the following directories, depending on your current version of Windows::
 
@@ -145,31 +150,8 @@ The ``kettle.properties`` file can also be manually edited. It is typically loca
 
 Navigate to the appropriate location and open ``kettle.properties``. Add the following lines to the file and save::
 
-	ETL_DIRECTORY = C:\path\to\directory\open-data-etl-utility-kit
-	DATASYNC_DIRECTORY = C:\path\to\directory\open-data-etl-utility-kit\DataSync
-
-INSERT SCREENSHOT
-
-Test these settings by opening Kettle and looking at ``kettle.properties`` file. Find Kettle and run spoon.bat or run the following in a command prompt::
-
-	> C:\path\to\directory\open-data-etl-utility-kit\data-integration\spoon.bat
-
-
-Setting-up default directories
-==============================
-Kettle should be configured to read from the default ETL directory. This configuration will only need to be setup once for each installation, which permits for easy deployment across multiple computers. 
-
-+-----------------------------------------------------------+
-| *Mac OS X / Linux:* $HOME/.Kettle                         |
-| *Windows:* C:\Documents and Settings\<username>\.kettle\  |
-| *Windows Vista and after:* C:\Users\<username>\.kettle    |
-+-----------------------------------------------------------+
-
-Edit ``kettle.properties`` and add:
-
-	$ ETL_Directory
-
-This configuration also permits ETLs to be migrated in the future with minimal reconfiguration. Once ETLs are moved, edit ``kettle.properties`` to reflect the new location.
+	ETL_DIRECTORY = C:/path/to/directory/open-data-etl-utility-kit
+	DATA_SYNC_DIRECTORY = C:/path/to/directory/open-data-etl-utility-kit/DataSync
 
 Understanding repository layout
 ===============================
@@ -197,3 +179,17 @@ After completing this section, the framework should resemble the following struc
 *	**Tools** - contains tools to help with administering ETL processes.
 *	**data-integration** - a link which directs to the directory of Kettle being used
 *	**data-integration-x.y.z** - the Kettle application files.
+
+Setting-up Email
+================
+
+Open ``open-data-etl-kit/ETL/Utilities/ETL_Completion_E-Mail.ktr`` in Kettle. Select ``Edit -> Settings`` and select the Parameters tab. Enter the appropriate values for:
+
+* **P_SMTP_Port** - SMTP port (default is 25)
+* **P_SMTP_Server** - SMTP server address. The machine running the ETL will need be able to access that server
+* **P_Sender_Address** - Will appear as the sender's email address
+* **P_Sender_Name** - Will in the "From" field.
+* **P_To_Address** - List of emails, comma separated.
+
+.. image:: images/email-configuration.PNG
+   :alt: Configuring emailing for automated alerts

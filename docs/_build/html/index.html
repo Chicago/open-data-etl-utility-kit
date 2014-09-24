@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Open Data ETL Toolkit 1.0r1 &mdash; open-data-etl-tool-kit 1.0r1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0r1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="open-data-etl-tool-kit 1.0r1 documentation" href="#" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="#">open-data-etl-tool-kit 1.0r1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="open-data-etl-toolkit-release">
+<h1>Open Data ETL Toolkit 1.0r1<a class="headerlink" href="#open-data-etl-toolkit-release" title="Permalink to this headline">¶</a></h1>
+<p>This toolkit provides several utilities and framework to help governments deploy automated ETLs using the open-source Pentaho data integration (Kettle) software.</p>
+<p>Namely, this toolkit will assist with:
+*       Load data from a database an load it to a Socrata data portal
+*       Steps to integrate with an Exchange server to provide e-mail alerts on the outcome of ETL scripts
+*       Handles deployment issues when using multiple operating systems during development
+*       Utilities to allow administrators to quickly analyze the log files of ETLs for quick diagnostics</p>
+<p>The ETL framework is organized so each function can be modified in one file that is used by all ETLs. This provides for easier maintenance, upgrading, and modification over hundreds of ETLs.</p>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Open source at the core - this framework can be deployed using Kettle, an open-source ETL software. Pentaho also provides telephone support and training if desired.</li>
+<li>Compatible with multiple data sources - this ETL framework can be used with a variety of data sources, including a range of databases (MySQL, PostgreSQL, Oracle, SQL Server, and variety of NoSQL), APIs, text files, etc.</li>
+<li>Compatible workflow for multiple operating systems - ETLs can be developed and deployed across multiple operating systems. ETLs can be developed on a Windows environment and deployed on Linux</li>
+<li>Helpful utilities - includes several scripts to help users quickly analyze log files</li>
+</ul>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>The requirements for the recommended configuration require the following pieces of software:
+*       <a class="reference external" href="http://community.pentaho.com/projects/data-integration/">Kettle (or Pentaho) data integration</a>
+*       Java 1.6 or higher
+*       <a class="reference external" href="http://socrata.github.io/datasync/">DataSync (for use with Socrata)</a></p>
+</div>
+<div class="section" id="errors-bugs">
+<h2>Errors / Bugs<a class="headerlink" href="#errors-bugs" title="Permalink to this headline">¶</a></h2>
+<p>Experiencing issues with the included files? Report it on our <a class="reference external" href="https://github.com/Chicago/open-data-etl-utility-kit/issues">issue tracker</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Open Data ETL Toolkit 1.0r1</a><ul>
+<li><a class="reference internal" href="#features">Features</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#errors-bugs">Errors / Bugs</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="#">open-data-etl-tool-kit 1.0r1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Tom Schenk Jr., Jonathan Levy.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

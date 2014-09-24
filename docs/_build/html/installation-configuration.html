@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installation &amp; Configuration &mdash; open-data-etl-tool-kit 1.0r1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0r1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="open-data-etl-tool-kit 1.0r1 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">open-data-etl-tool-kit 1.0r1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="installation-configuration">
+<h1>Installation &amp; Configuration<a class="headerlink" href="#installation-configuration" title="Permalink to this headline">¶</a></h1>
+<p>This section outlines basic installation procedures for Kettle, the open data ETL framework, and other necessary components. This section also discusses some suggested configurations which will allow for easier maintenance over time.</p>
+<p>Installation consists of three parts</p>
+<ul class="simple">
+<li>Cloning or installing toolkit repository</li>
+<li>Installing Kettle (or Pentaho)</li>
+<li>Installing Socrata DataSync</li>
+<li>Configuring Kettle and DataSync installation</li>
+</ul>
+<div class="section" id="installation-on-mac-os-x-linux-or-unix">
+<h2>Installation on Mac OS X, Linux, or Unix<a class="headerlink" href="#installation-on-mac-os-x-linux-or-unix" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installing-etl-framework">
+<h3>Installing ETL framework<a class="headerlink" href="#installing-etl-framework" title="Permalink to this headline">¶</a></h3>
+<p>First, determine a location of the installation of the toolkit. All scripts, programs, and transformations related to ETL processes will remain in this directory.</p>
+<p>Using <tt class="docutils literal"><span class="pre">git</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ cd /path/to/directory
+$ git clone
+</pre></div>
+</div>
+<p>Alternatively, one can download the zip file from GitHub and extract the contents to the above directory.</p>
+</div>
+<div class="section" id="installing-configuring-kettle">
+<h3>Installing &amp; configuring Kettle<a class="headerlink" href="#installing-configuring-kettle" title="Permalink to this headline">¶</a></h3>
+<p>Next, we will need to obtain Kettle or Pentaho. Download <a class="reference external" href="http://community.pentaho.com/projects/data-integration/">Kettle</a> to your computer.</p>
+<p>The Kettle installation should allow for easy upgrades to the data integration software without needing to reconfigure any ETLs. Likewise, upgrading to new versions should permit testing. Therefore, Kettle should be installed to a version-specific folder, such as <tt class="docutils literal"><span class="pre">data-integration-x.y.z</span></tt>. Assuming the zipped file is located in <tt class="docutils literal"><span class="pre">~/Downloads</span></tt>, one could run the following:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ cd ~/Downloads
+$ unzip pdi-ce-4.4.0-stable.zip -d path/to/directory/open-data-etl-utility-kit
+$ mv data-integration data-integration-4.4.0
+</pre></div>
+</div>
+<p>Create a symlink between <tt class="docutils literal"><span class="pre">data-integration</span></tt> and the current version:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ cd /path/to/directory/open-data-etl-utility-kit
+$ ln -s data-integration-x.y.z data-integration
+</pre></div>
+</div>
+<p>Future versions of Kettle can be installed and tested in it&#8217;s own directory without impacting production. Once ETLs are ready to use a newer version, update the symlink to the appropriate directory.</p>
+</div>
+<div class="section" id="installing-datasync">
+<h3>Installing DataSync<a class="headerlink" href="#installing-datasync" title="Permalink to this headline">¶</a></h3>
+<p>This framework uses Socrata DataSync to post data to the portal. This utility is <em>only</em> compatible with Socrata portals. Fortunately, this utility handles incremental updates and upserting without additional logic in the ETL.</p>
+<p>You may install DataSync to any directory. Later configuration will direct Kettle to the correct location.</p>
+<p>You can configure DataSync to run on a &#8220;headless&#8221; Linux machine&#8211;a Linux server which is only accessible through a command prompt. Running DataSync on a headless machine requires configuration to pass the domain, username, password, and token without a graphical user interface (GUI). Instructions on configuring a headless is available on the <a class="reference external" href="http://socrata.github.io/datasync/guides/setup-standard-job-headless.html">DataSync support site</a>. The <tt class="docutils literal"><span class="pre">DataSync</span></tt> directory contains templates for the config.json file</p>
+<p>If you installed DataSync to another directory, such as <tt class="docutils literal"><span class="pre">/path/to/DataSync</span></tt>, then you must edit <tt class="docutils literal"><span class="pre">/path/to/directory/open-data-etl-utility-kit/DataSync/load_preferences.sh</span></tt>. Specifically, the script must now read:</p>
+<div class="highlight-python"><div class="highlight"><pre>java -jar /path/to/DataSync/datasync.jar --config config.json --jobType LoadPreferences
+</pre></div>
+</div>
+<p>In order for later automation.</p>
+</div>
+<div class="section" id="setting-up-default-directories">
+<h3>Setting-up default directories<a class="headerlink" href="#setting-up-default-directories" title="Permalink to this headline">¶</a></h3>
+<p>Users will need to define two environmental variables for their Kettle installation::
+*       Location of the ETL directory (e.g., /path/to/directory/open-data-utility-kit)
+*       Location of the DataSync installation (e.g., /path/to/directory/open-data-utility-kit/DataSync)
+This configuration will only need to be adjusted once for each environment. It will also allow for each deployment of ETLs across multiple operating systems without needing to configure the ETL itself.</p>
+<p>Launch Kettle by finding and launching spoon.sh, or, run the following in a command prompt:</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; sh /path/to/directory/open-data-utility-kit/data-integration/spoon.sh
+</pre></div>
+</div>
+<p>Once Kettle launches, selected Edit &gt; Edit the kettle.properties file:</p>
+<p>Right-click to insert a new line. Once a blank line is available, add <tt class="docutils literal"><span class="pre">ETL_DIRECTORY</span></tt> as a variable name and add the path to your ETL directory under value (e.g., <tt class="docutils literal"><span class="pre">/path/to/directory/open-data-utility-kit</span></tt>).</p>
+<p>Add another line and enter <tt class="docutils literal"><span class="pre">DATASYNC_DIRECTORY</span></tt> as a variable name and <tt class="docutils literal"><span class="pre">/path/to/directory/open-data-utility-kit/DataSync</span></tt></p>
+<img alt="Configuring kettle.properties on MacOS X/Linux/Unix" src="_images/kettle.properties_configuration_nix.PNG" />
+<p>The <tt class="docutils literal"><span class="pre">kettle.properties</span></tt> file can also be manually edited. It is typically located under the following directories, depending on your current version of Windows:</p>
+<div class="highlight-python"><div class="highlight"><pre>$HOME\.Kettle
+</pre></div>
+</div>
+<p>Navigate to the appropriate location and open <tt class="docutils literal"><span class="pre">kettle.properties</span></tt>. Add the following lines to the file and save:</p>
+<div class="highlight-python"><div class="highlight"><pre>ETL_DIRECTORY = /path/to/DataSync
+DATA_SYNC_DIRECTORY = /path/to/directory/open-data-utility-kit/DataSync
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="installation-on-windows">
+<h2>Installation on Windows<a class="headerlink" href="#installation-on-windows" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Installing ETL framework<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>First, determine a location of the installation of the toolkit. All scripts, programs, and transformations related to ETL processes will remain in this directory.</p>
+<p>Using <tt class="docutils literal"><span class="pre">git</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ cd C:\path\to\directory
+$ git clone
+</pre></div>
+</div>
+<p>Alternatively, one can download the zip file from GitHub and extract the contents to the above directory.</p>
+</div>
+<div class="section" id="id2">
+<h3>Installing &amp; configuring Kettle<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Next, we will need to obtain Kettle or Pentaho. Download [Kettle](<a class="reference external" href="http://community.pentaho.com/projects/data-integration/">http://community.pentaho.com/projects/data-integration/</a>) and extract to the ETL directory. Assuming the download is located in ~/Downloads, one could run the following:</p>
+<p>INSERT MORE INSTRUCTIONS</p>
+<p>The Kettle installation should allow for easy upgrades to the data integration software without needing to reconfigure any ETLs. Likewise, upgrading to new versions should permit testing.</p>
+<p>Install Kettle to <tt class="docutils literal"><span class="pre">data-integration-x.y.z</span></tt>, where <tt class="docutils literal"><span class="pre">x.y.z</span></tt> is the version number (e.g., 4.4.0).</p>
+<p>Create a link between <tt class="docutils literal"><span class="pre">data-integration</span></tt> and the current version:</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; cd C:\path\to\directory\open-data-etl-utility-kit
+&gt; mklink /j &quot;data-integration-x.y.z&quot; &quot;data-integration&quot;
+</pre></div>
+</div>
+<p>Future versions of Kettle can be installed and tested in it&#8217;s own directory without impacting production. Once ETLs are ready to use a newer version, update the symlink to the appropriate directory.</p>
+</div>
+<div class="section" id="id3">
+<h3>Installing DataSync<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>This framework uses Socrata DataSync to post data to the portal. This utility is <em>only</em> compatible with Socrata portals. Fortunately, this utility handles incremental updates and upserting without additional logic in the ETL.</p>
+</div>
+<div class="section" id="id4">
+<h3>Setting-up default directories<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Users will need to define two environmental variables for their Kettle installation::
+*       Location of the ETL directory (e.g., C:pathtodirectoryopen-data-etl-utility-kit)
+*       Location of the DataSync installation (e.g., C:pathtodirectoryopen-data-etl-utility-kitDataSync)
+This configuration will only need to be adjusted once for each environment. It will also allow for each deployment of ETLs across multiple operating systems without needing to configure the ETL itself.</p>
+<p>Launch Kettle by finding and launching spoon.bat, or, run the following in a command prompt:</p>
+<div class="highlight-python"><div class="highlight"><pre>&gt; C:\path\to\directory\open-data-etl-utility-kit\data-integration\spoon.bat
+</pre></div>
+</div>
+<p>Once Kettle launches, selected Edit &gt; Edit the kettle.properties file:</p>
+<div class="highlight-python"><div class="highlight"><pre>.. image:: images/kettle.properties_configuration_windows.PNG
+</pre></div>
+</div>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">alt:</th><td class="field-body">Configuring kettle.properties on Windows</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>Right-click to insert a new line. Once a blank line is available, add <tt class="docutils literal"><span class="pre">ETL_DIRECTORY</span></tt> as a variable name and add the path to your ETL directory under value (e.g., <tt class="docutils literal"><span class="pre">C:/path/to/directory/open-data-utility-kit</span></tt>).</p>
+<p>Add another line and enter <tt class="docutils literal"><span class="pre">DATA_SYNC_DIRECTORY</span></tt> as a variable name and <tt class="docutils literal"><span class="pre">C:/path/to/directory/open-data-utility-kit/DataSync</span></tt>. It is recommended to use forward-slashes to maintain compatibility with Linux deployment.</p>
+<p>The <tt class="docutils literal"><span class="pre">kettle.properties</span></tt> file can also be manually edited. It is typically located under the following directories, depending on your current version of Windows:</p>
+<div class="highlight-python"><div class="highlight"><pre>| *Windows:* C:\Documents and Settings\&lt;username&gt;\.kettle\
+| *Windows Vista and after:* C:\Users\&lt;username&gt;\.kettle
+</pre></div>
+</div>
+<p>Navigate to the appropriate location and open <tt class="docutils literal"><span class="pre">kettle.properties</span></tt>. Add the following lines to the file and save:</p>
+<div class="highlight-python"><div class="highlight"><pre>ETL_DIRECTORY = C:/path/to/directory/open-data-etl-utility-kit
+DATA_SYNC_DIRECTORY = C:/path/to/directory/open-data-etl-utility-kit/DataSync
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="understanding-repository-layout">
+<h2>Understanding repository layout<a class="headerlink" href="#understanding-repository-layout" title="Permalink to this headline">¶</a></h2>
+<p>After completing this section, the framework should resemble the following structure. Several scripts use relative directories dependant on the following layout. Any deviation will require some, but simple, reconfiguration.</p>
+<ul class="simple">
+<li>open-data-etl-kit<ul>
+<li>ETL<ul>
+<li>Utilities</li>
+</ul>
+</li>
+<li>Log</li>
+<li>DataSync</li>
+<li>Tools</li>
+<li>data-integration</li>
+<li>data-integration-x.y.z</li>
+</ul>
+</li>
+</ul>
+<p><tt class="docutils literal"><span class="pre">open-data-etl-kit</span></tt> may be renamed to meet your preferences. Each directory will have the following responsibilities:</p>
+<ul class="simple">
+<li><strong>ETL</strong> - will contain subfolders pertaining to each ETL (e.g., hello-world). These directories will contain the logic necessary to extract and transform the data for the portal. If you use our templates, each ETL will call to the <tt class="docutils literal"><span class="pre">Utilities</span></tt> directory to complete additional tasks.</li>
+<li><strong>ETL/Utilities</strong> - will contain generic steps used by ETLs, such as sending email alerts and preparing OS-level variables to use with DataSync.</li>
+<li><strong>Log</strong> - The recommended setup will direct Kettle log files to this directory using the ETL name and timestamp. If desired, it can serve as a historical repository of ETL performance and logs for diagnostics. This directory contains serveral bash scripts (Linux/MacOS X/Unix only) that make it easier to</li>
+<li><strong>DataSync</strong> - contains configuration files for DataSync. The actual DataSync installation can be placed in your preferred directory.</li>
+<li><strong>Tools</strong> - contains tools to help with administering ETL processes.</li>
+<li><strong>data-integration</strong> - a link which directs to the directory of Kettle being used</li>
+<li><strong>data-integration-x.y.z</strong> - the Kettle application files.</li>
+</ul>
+</div>
+<div class="section" id="setting-up-email">
+<h2>Setting-up Email<a class="headerlink" href="#setting-up-email" title="Permalink to this headline">¶</a></h2>
+<p>Open <tt class="docutils literal"><span class="pre">open-data-etl-kit/ETL/Utilities/ETL_Completion_E-Mail.ktr</span></tt> in Kettle. Select <tt class="docutils literal"><span class="pre">Edit</span> <span class="pre">-&gt;</span> <span class="pre">Settings</span></tt> and select the Parameters tab. Enter the appropriate values for:</p>
+<ul class="simple">
+<li><strong>P_SMTP_Port</strong> - SMTP port (default is 25)</li>
+<li><strong>P_SMTP_Server</strong> - SMTP server address. The machine running the ETL will need be able to access that server</li>
+<li><strong>P_Sender_Address</strong> - Will appear as the sender&#8217;s email address</li>
+<li><strong>P_Sender_Name</strong> - Will in the &#8220;From&#8221; field.</li>
+<li><strong>P_To_Address</strong> - List of emails, comma separated.</li>
+</ul>
+<img alt="Configuring emailing for automated alerts" src="_images/email-configuration.PNG" />
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installation &amp; Configuration</a><ul>
+<li><a class="reference internal" href="#installation-on-mac-os-x-linux-or-unix">Installation on Mac OS X, Linux, or Unix</a><ul>
+<li><a class="reference internal" href="#installing-etl-framework">Installing ETL framework</a></li>
+<li><a class="reference internal" href="#installing-configuring-kettle">Installing &amp; configuring Kettle</a></li>
+<li><a class="reference internal" href="#installing-datasync">Installing DataSync</a></li>
+<li><a class="reference internal" href="#setting-up-default-directories">Setting-up default directories</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#installation-on-windows">Installation on Windows</a><ul>
+<li><a class="reference internal" href="#id1">Installing ETL framework</a></li>
+<li><a class="reference internal" href="#id2">Installing &amp; configuring Kettle</a></li>
+<li><a class="reference internal" href="#id3">Installing DataSync</a></li>
+<li><a class="reference internal" href="#id4">Setting-up default directories</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#understanding-repository-layout">Understanding repository layout</a></li>
+<li><a class="reference internal" href="#setting-up-email">Setting-up Email</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/installation-configuration.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">open-data-etl-tool-kit 1.0r1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Tom Schenk Jr., Jonathan Levy.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

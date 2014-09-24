@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Utilities for Administering ETLs &mdash; open-data-etl-tool-kit 1.0r1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0r1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="open-data-etl-tool-kit 1.0r1 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">open-data-etl-tool-kit 1.0r1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="utilities-for-administering-etls">
+<h1>Utilities for Administering ETLs<a class="headerlink" href="#utilities-for-administering-etls" title="Permalink to this headline">¶</a></h1>
+<p>This repository contains several helpful tools to assist with monitoring ETL processes.</p>
+<div class="section" id="checking-last-updated-information">
+<h2>Checking last-updated information<a class="headerlink" href="#checking-last-updated-information" title="Permalink to this headline">¶</a></h2>
+<p><strong>File:</strong> Show_Update_Times_of_View.ktr</p>
+<p><strong>Description:</strong> A Kettle transformation to be run in Spoon (the Kettle GUI).  It pulls update information about a dataset from Socrata APIs and presents it in a human-readable format.</p>
+<p><strong>Usage:</strong> Open Show_Update_Times_of_View.ktr in Kettle/Pentaho. For the initial setup, open the &#8220;Inputs&#8221; step and replace baseURL parameter with the URL for a specific data portal (e.g., opendata.socrata.com, data.cityofchicago.org).</p>
+<img alt="Setting baseURL" src="_images/show_update_times_of_view_baseURL_config.png" />
+<p>To execute, run the transformation (F9) and input the appropriate <a class="reference external" href="http://dev.socrata.com/docs/endpoints.html">4x4</a> as a value for the PARAM_four-by-four parameter, then press &#8220;OK&#8221;</p>
+<img alt="Inputting 4x4" src="_images/show_update_times_of_view_4x4_config.png" />
+<p><strong>Returns:</strong> If successful, it will return a prompt window with the following fields:</p>
+<ul class="simple">
+<li>Dataset/view title</li>
+<li>Creation date and time</li>
+<li>Dataset/view author</li>
+<li>Last-updated date and time</li>
+<li>Published date and time</li>
+<li>Last modified date and time</li>
+<li>Index last modified date and time</li>
+<li>Username who last updated data</li>
+</ul>
+<img alt="Prompt showing update results" src="_images/show_update_times_of_view_prompt.png" />
+</div>
+<div class="section" id="show-all-log-files">
+<h2>Show all log files<a class="headerlink" href="#show-all-log-files" title="Permalink to this headline">¶</a></h2>
+<p><strong>File:</strong> Log/A_DatasetLogs.sh (MacOS X/Linux/Unix only)</p>
+<p><strong>Description:</strong> Shows all of the log files associated with a dataset.</p>
+<p><strong>Usage:</strong> Open the terminal and type the name of a dataset:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ cd /path/to/directory/open-data-etl-utility-kit/
+$ sh Log/A_DatasetLogs.sh Name_of_dataset
+</pre></div>
+</div>
+<p><strong>Returns:</strong> Will list the log files associated for a user-specified ETL job. The output is displayed in the terminal.</p>
+</div>
+<div class="section" id="summarize-etl-run-times">
+<h2>Summarize ETL run times<a class="headerlink" href="#summarize-etl-run-times" title="Permalink to this headline">¶</a></h2>
+<p><strong>File:</strong> Log/A_DatasetLogs.sh (MacOS X/Linux/Unix only)</p>
+<p><strong>Description:</strong> Shows the runtime for ETLs with a dataset.</p>
+<p><strong>Usage:</strong> Open the terminal and type the name of a dataset:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ cd /path/to/directory/open-data-etl-utility-kit/
+$ sh Log/A_ETLRuntimes.sh Name_of_dataset
+</pre></div>
+</div>
+<p><strong>Returns:</strong> The output will show the total run-times recorded in log files for the user-specified ETL. The output is displayed in the terminal.</p>
+</div>
+<div class="section" id="show-today-s-etl-logs">
+<h2>Show today&#8217;s ETL logs<a class="headerlink" href="#show-today-s-etl-logs" title="Permalink to this headline">¶</a></h2>
+<p><strong>File:</strong> Log/A_TodayLogs.sh (MacOS X/Linux/Unix only)</p>
+<p><strong>Description:</strong> Shows log files which were created today</p>
+<p><strong>Usage:</strong> Open the terminal and run the command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sh /path/to/directory/open-data-etl-utility-kit/Log/A_odayLogs.sh
+</pre></div>
+</div>
+<p><strong>Returns:</strong> The output will show the list of log files which were generated today. The output is displayed in the terminal.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Utilities for Administering ETLs</a><ul>
+<li><a class="reference internal" href="#checking-last-updated-information">Checking last-updated information</a></li>
+<li><a class="reference internal" href="#show-all-log-files">Show all log files</a></li>
+<li><a class="reference internal" href="#summarize-etl-run-times">Summarize ETL run times</a></li>
+<li><a class="reference internal" href="#show-today-s-etl-logs">Show today&#8217;s ETL logs</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/utilities-for-administering-etls.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">open-data-etl-tool-kit 1.0r1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Tom Schenk Jr., Jonathan Levy.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

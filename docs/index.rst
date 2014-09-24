@@ -58,8 +58,8 @@ Table of Contents
 .. toctree::
    :maxdepth: 1
 
-   creating-configuring-ETL
    installation-configuration
+   creating-configuring-ETL
    setting-up-automation
    utilities-for-administering-etls
 

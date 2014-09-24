@@ -44,7 +44,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'open-data-etl-tool-kit'
-copyright = u'2014, Tom Schenk Jr., Jonathan Levy'
+copyright = u'2014, City of Chicago'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -197,7 +197,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
   ('index', 'open-data-etl-tool-kit.tex', u'open-data-etl-tool-kit Documentation',
-   u'Tom Schenk Jr., Jonathan Levy', 'manual'),
+   u'City of Chicago', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -227,7 +227,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'open-data-etl-tool-kit', u'open-data-etl-tool-kit Documentation',
-     [u'Tom Schenk Jr., Jonathan Levy'], 1)
+     [u'City of Chicago'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -241,7 +241,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
   ('index', 'open-data-etl-tool-kit', u'open-data-etl-tool-kit Documentation',
-   u'Tom Schenk Jr., Jonathan Levy', 'open-data-etl-tool-kit', 'One line description of project.',
+   u'City of Chicago', 'open-data-etl-tool-kit', 'One line description of project.',
    'Miscellaneous'),
 ]
 

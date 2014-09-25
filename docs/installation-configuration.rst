@@ -190,7 +190,7 @@ Setting-up default directories
 ------------------------------
 
 Users will need to define two environmental variables for their Kettle
-installation::
+installation:
 
 * Location of the ETL directory (e.g.,
   C:\path\to\directory\open-data-etl-utility-kit)
@@ -204,10 +204,10 @@ installation::
 Launch Kettle by finding and launching spoon.bat, or, run the
 following in a command prompt::
 
-	> C:\path\to\directory\open-data-etl-utility-kit\data-integration\spoon.bat
+    > C:\path\to\directory\open-data-etl-utility-kit\data-integration\spoon.bat
 
 Once Kettle launches, selected Edit > Edit the kettle.properties
-file::
+file:
 
 .. image:: images/kettle.properties_configuration_windows.PNG
    :alt: Configuring kettle.properties on Windows
@@ -243,14 +243,16 @@ following structure. Several scripts use relative directories
 dependant on the following layout. Any deviation will require some,
 but simple, reconfiguration.
 
-* open-data-etl-kit
-  - ETL
-    + Utilities
-  - Log
-  - DataSync
-  - Tools
-  - data-integration
-  - data-integration-x.y.z
+::
+
+    open-data-etl-kit/
+        ETL/
+            Utilities/
+    Log/
+    DataSync/
+    Tools/
+    data-integration/
+    data-integration-x.y.z/
 
 ``open-data-etl-kit`` may be renamed to meet your preferences. Each
 directory will have the following responsibilities:

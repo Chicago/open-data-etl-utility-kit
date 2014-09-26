@@ -289,5 +289,5 @@ tab. Enter the appropriate values for:
 * **P_Sender_Name** - Will in the "From" field.
 * **P_To_Address** - List of emails, comma separated.
 
-.. image:: images/email-configuration.PNG
+.. image:: images/email-configuration.png
    :alt: Configuring emailing for automated alerts

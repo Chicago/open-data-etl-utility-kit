@@ -8,7 +8,7 @@ integration (Kettle) software.
 
 Namely, this toolkit will assist with:
 
-* Load data from a database an load it to a Socrata data portal
+* Load data from a database and transfer it to a Socrata data portal
 * Steps to integrate with an Exchange server to provide e-mail alerts
   on the outcome of ETL scripts
 * Handles deployment issues when using multiple operating systems

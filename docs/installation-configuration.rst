@@ -272,5 +272,5 @@ tab. Enter the appropriate values for:
 
 The **P_Body_Start** and **P_ETL_Status** parameters contain default values for the e-mail message. You may edit them if you wish but it is not important to do so because they should always be overwritten with real values when the ETL runs.
 
-.. image:: images/email-configuration.PNG
+.. image:: images/email-configuration.png
    :alt: Configuring emailing for automated alerts

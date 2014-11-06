@@ -72,6 +72,6 @@ Show today's ETL logs
 
 **Usage:** Open the terminal and run the command::
 
-	$ sh /path/to/directory/open-data-etl-utility-kit/Log/A_odayLogs.sh
+	$ sh /path/to/directory/open-data-etl-utility-kit/Log/A_TodayLogs.sh [-e]
 
-**Returns:** The output will show the list of log files which were generated today. The output is displayed in the terminal.
+**Returns:** The output will show the list of log files which were generated today. With the *-e* parameter, a group of datasets specified in a parameter at the beginning of the script will be excluded (generally, those that run frequently and would clutter the output). The output is displayed in the terminal.

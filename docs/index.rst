@@ -62,14 +62,3 @@ Errors / Bugs
 Experiencing issues with the included files? Report it on our `issue
 tracker
 <https://github.com/Chicago/open-data-etl-utility-kit/issues>`__
-
-Table of Contents
-=================
-.. toctree::
-   :maxdepth: 1
-
-   installation-configuration
-   creating-configuring-ETL
-   setting-up-automation
-   utilities-for-administering-etls
-

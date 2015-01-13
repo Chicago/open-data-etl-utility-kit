@@ -3,11 +3,12 @@ Installation & Configuration
 ============================
 
 This section outlines basic installation procedures for Kettle, the
-open data ETL framework, and other necessary components. This section
-also discusses some suggested configurations which will allow for
-easier maintenance over time.
+open data ETL framework, and other necessary components. These items
+only need to be configured on the initiall installation for each
+computer. This section discusses some suggested configurations which 
+will allow for easier maintenance over time.
 
-Installation consists of three parts
+Installation consists of four parts
 
 * Cloning or installing toolkit repository
 * Installing Kettle (or Pentaho)
@@ -27,7 +28,7 @@ remain in this directory.
 Using ``git``::
 
 	$ cd /path/to/directory
-	$ git clone 
+	$ git clone https://github.com/Chicago/open-data-etl-utility-kit.git
 
 Alternatively, one can download the zip file from GitHub and extract
 the contents to the above directory.
@@ -145,7 +146,7 @@ remain in this directory.
 Using ``git``::
 
 	$ cd C:\path\to\directory
-	$ git clone
+	$ git clone https://github.com/Chicago/open-data-etl-utility-kit.git
 
 Alternatively, one can download the zip file from GitHub and extract
 the contents to the above directory.
@@ -171,7 +172,12 @@ Create a link between ``data-integration`` and the current version::
 	> cd C:\path\to\directory\open-data-etl-utility-kit
 	> mklink /j "data-integration-x.y.z" "data-integration"
 
-A future version of Kettle can be installed and tested in its own directory without impacting production. Once ETLs are ready to use a newer version, update the symlink to the appropriate directory.
+.. image:: images/install_kettle-windows.gif
+	:alt: Installing and configuring shortcut on Windows
+
+A future version of Kettle can be installed and tested in its own directory 
+without impacting production. Once ETLs are ready to use a newer version, 
+update the symlink to the appropriate directory.
 
 Installing DataSync
 -------------------
@@ -181,6 +187,15 @@ utility is *only* compatible with Socrata portals. Fortunately, this
 utility handles incremental updates and upserting without additional
 logic in the ETL.
 
+To install DataSync, visit the `release page
+<https://github.com/socrata/datasync/releases>`_ on the GitHub
+repository. Download a jar file, i.e., DataSync-x.y.jar, to a local directory,
+such as C:\path\to\directory\open-data-etl-utility-kit\DataSync. Rename the file
+to DataSync.jar
+
+.. image:: images/install_datasync-windows.gif
+	:alt: Downloading DataSync on Windows
+
 Setting-up default directories
 ------------------------------
 
@@ -188,9 +203,9 @@ Users will need to define two environmental variables for their Kettle
 installation:
 
 * Location of the ETL directory (e.g.,
-  C:\path\to\directory\open-data-etl-utility-kit)
+  C:\\path\\to\\directory\\open-data-etl-utility-kit)
 * Location of the DataSync installation (e.g.,
-  C:\path\to\directory\open-data-etl-utility-kit\DataSync) This
+  C:\\path\\to\\directory\\open-data-etl-utility-kit\\DataSync) This
   configuration will only need to be adjusted once for each
   environment. It will also allow for each deployment of ETLs across
   multiple operating systems without needing to configure the ETL
@@ -204,7 +219,7 @@ following in a command prompt::
 Once Kettle launches, selected Edit > Edit the kettle.properties
 file:
 
-.. image:: images/kettle.properties_configuration_windows.PNG
+.. image:: configuring_kettle.properties-windows.gif
    :alt: Configuring kettle.properties on Windows
 
 Right-click to insert a new line. Once a blank line is available, add

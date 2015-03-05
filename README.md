@@ -19,7 +19,7 @@ The ETL framework is organized so each function can be modified in one file that
 The requirements for the recommended configuration require the following pieces of software:
 * [Kettle (or Pentaho) data integration](http://community.pentaho.com/projects/data-integration/) - _Note_: This framework has only been tested with Kettle 4.4.0 and lower.
 * Java 1.6 or higher
-* [DataSync (for use with Socrata)](http://socrata.github.io/datasync/)
+* [DataSync (for use with Socrata)](http://socrata.github.io/datasync/) - _Note_: This framework is designed for the version of DataSync in the DataSync directory and will not necessarily work with earlier or later versions.
 * MacOS X, Linux, or Unix (only required for full automation with included scripts)
 
 ## Kettle Compatibility

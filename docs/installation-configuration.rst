@@ -65,6 +65,10 @@ utility is *only* compatible with Socrata portals. Fortunately, this
 utility handles incremental updates and upserting without additional
 logic in the ETL.
 
+This framework will work with the version of DataSync in the DataSync
+directory of this repository, which is named in a way to make the
+version clear. It should be renamed to ``datasync.jar`` in an actual deployment.
+
 You may install DataSync to any directory. Later configuration will
 direct Kettle to the correct location.
 

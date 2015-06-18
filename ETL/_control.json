@@ -2,7 +2,6 @@
   "action" : "Replace",
   "csv" :
     {
-      "ignoreServerLatLong" : false,
       "fixedTimestampFormat" : "MM/dd/yyyy",
       "separator" : ",",
       "timezone" : "UTC",

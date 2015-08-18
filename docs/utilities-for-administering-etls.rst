@@ -75,3 +75,17 @@ Show today's ETL logs
 	$ sh /path/to/directory/open-data-etl-utility-kit/Log/A_TodayLogs.sh [-e]
 
 **Returns:** The output will show the list of log files which were generated today. With the *-e* parameter, a group of datasets specified in a parameter at the beginning of the script will be excluded (generally, those that run frequently and would clutter the output). The output is displayed in the terminal.
+
+Run a specific ETL
+---------------------
+
+**File:** Log/A_RunETL.sh (MacOS X/Linux/Unix only)
+
+**Description:** Performs a one-time run of an ETL normally run on a scheduled basis through the crontab file.  This file need not be in the Log directory to run correctly.  It does not use the log files and is in the Log directory only to keep it with other scripts.
+
+**Usage:** Open the terminal and type the name of a dataset::
+
+	$ cd /path/to/directory/open-data-etl-utility-kit/
+	$ sh Log/A_RunETL.sh Name_of_dataset
+
+**Returns:** The script will find and run the ETL command for the specified dataset. The output will show the command run so the user can confirm it was the intended dataset ETL.

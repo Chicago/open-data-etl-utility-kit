@@ -7,9 +7,7 @@ IF [%1] == [] GOTO DEFAULT
 IF [%1] == [-e] GOTO EXCLUDE
 
 echo Usage: A_Today.bat [-e]
-echo    -e Exclude a pre-specified set of datasets by 4x4. generally those that run 
-
-frequently and would clutter the output.
+echo    -e Exclude a pre-specified set of datasets by 4x4. generally those that run frequently and would clutter the output.
 exit /B 1
 
 :DEFAULT

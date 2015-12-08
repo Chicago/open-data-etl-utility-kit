@@ -1,6 +1,6 @@
 @echo off
 IF [%1] == [] GOTO USAGE
-copy *%1* con | find "Processing ended after"
+type *%1* 2>nul | find "Processing ended after"
 exit /B
 
 :USAGE

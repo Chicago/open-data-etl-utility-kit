@@ -36,7 +36,7 @@ Setting-up Timing
 
 The timing of the automated script is manged through cron jobs. Edit the cron job manager in the terminal by typing ``crontab -e`` in the shell. The cron job contains the starting script and also instructs the logging to be directed to the appropriate log files. For example::
 	
-	* * * * * /path/to/directory/open-data-etl-utility-kit/ETL/Data_Set_Name_abcd-1234/abcd-1234.sh >> /path/to/directory/ETL/Data_Set_Name_abcd-1234/abcd-1234.log
+	* * * * * /path/to/directory/open-data-etl-utility-kit/ETL/Data_Set_Name_abcd-1234/abcd-1234.sh >> /path/to/directory/ETL/Data_Set_Name_abcd-1234/abcd-1234.log 2>&1
 
 The astrisks should be edited to meet the desired update schedules. A quick guides of those settings can be found on `Wikipedia <http://en.wikipedia.org/wiki/Cron#Predefined_scheduling_definitions>`_.
 
@@ -45,6 +45,6 @@ Testing process
 
 A simple way to test the process is to execute the following line in the command prompt::
 	
-	/path/to/directory/open-data-etl-utility-kit/ETL/Data_Set_Name_abcd-1234/abcd-1234.sh >> /path/to/directory/ETL/Data_Set_Name_abcd-1234/abcd-1234.log
+	/path/to/directory/open-data-etl-utility-kit/ETL/Data_Set_Name_abcd-1234/abcd-1234.sh >> /path/to/directory/ETL/Data_Set_Name_abcd-1234/abcd-1234.log 2>&1
 
 If correctly configured, the dataset should be updated, log files should be updated, and users should receive email alerts.

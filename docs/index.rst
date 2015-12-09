@@ -1,6 +1,6 @@
-===============================
-Open Data ETL Toolkit |release|
-===============================
+=====================
+Open Data ETL Toolkit
+=====================
 
 .. toctree::
    :maxdepth: 1
@@ -13,10 +13,6 @@ Open Data ETL Toolkit |release|
 This toolkit provides several utilities and framework to help governments deploy automated ETLs using the open-source Pentaho data integration (Kettle) software.
 
 Namely, this toolkit will assist with:
-*	Load data from a database an load it to a Socrata data portal
-*	Steps to integrate with an SMTP server to provide e-mail alerts on the outcome of ETL scripts
-*	Handles deployment issues when using multiple operating systems during development
-*	Utilities to allow administrators to quickly analyze the log files of ETLs for quick diagnostics
 
 * Load data from a database and transfer it to a Socrata data portal
 * Steps to integrate with an Exchange server to provide e-mail alerts

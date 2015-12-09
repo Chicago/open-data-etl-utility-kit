@@ -112,7 +112,7 @@ words, it does not use a config.json file.</note>
            <schema_name/>
            </partitioning>
        <formula><field_name>DataSyncBatchCommand</field_name>
-<formula_string>&quot;java -jar -Xmx1g &quot; &amp; [DataSyncDirectory] &amp; &quot;datasync.jar&quot; &amp; &quot; --fileToPublish &quot; &amp; [file] &amp; &quot; --fileToPublishHasHeaderRow &quot; &amp; &quot;false&quot;  &amp; &quot; --datasetID &quot; &amp; [datasetid] &amp; &quot; --publishMethod &quot; &amp; &quot;replace&quot; &amp; &quot; --publishViaHttp true&quot; &amp; &quot; --pathToControlFile &quot; &amp; [controlfile]</formula_string>
+<formula_string>&quot;java -jar -Xmx1g &quot; &amp; [DataSyncDirectory] &amp; &quot;datasync.jar&quot; &amp; &quot; --fileToPublish &quot; &amp; [file] &amp; &quot; --datasetID &quot; &amp; [datasetid] &amp; &quot; --publishMethod &quot; &amp; &quot;replace&quot; &amp; &quot; --publishViaHttp true&quot; &amp; &quot; --pathToControlFile &quot; &amp; [controlfile]</formula_string>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
@@ -121,7 +121,7 @@ words, it does not use a config.json file.</note>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>74</xloc>
-      <yloc>276</yloc>
+      <yloc>277</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

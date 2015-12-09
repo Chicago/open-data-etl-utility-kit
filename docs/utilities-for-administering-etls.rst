@@ -49,10 +49,21 @@ Show all log files
 
 **Returns:** Will list the log files associated for a user-specified ETL job. The output is displayed in the terminal.
 
+**File:** Log/A_DatasetLogs.bat (Windows only)
+ 
+**Description:** Shows all of the log files associated with a dataset.
+ 
+**Usage:** Open the command prompt window and type the name of a dataset::
+ 	
+	> cd \path\to\directory\open-data-etl-utility-kit\
+	> \Log\A_DatasetLogs.bat Name_of_dataset
+ 
+**Returns:** Will list the log files associated for a user-specified ETL job. The output is displayed in the command prompt window.
+
 Summarize ETL run times
 -----------------------
 
-**File:** Log/A_DatasetLogs.sh (MacOS X/Linux/Unix only)
+**File:** Log/A_ETLRuntimes.sh (MacOS X/Linux/Unix only)
 
 **Description:** Shows the runtime for ETLs with a dataset.
 
@@ -62,6 +73,17 @@ Summarize ETL run times
 	$ sh Log/A_ETLRuntimes.sh Name_of_dataset
 
 **Returns:** The output will show the total run-times recorded in log files for the user-specified ETL. The output is displayed in the terminal.
+
+**File:** Log/A_ETLRuntimes.bat (Windows only)
+
+**Description:** Shows the runtime for ETLs with a dataset.
+
+**Usage:** Open the command prompt window and type the name of a dataset::
+
+	> cd \path\to\directory\open-data-etl-utility-kit\
+	> Log\A_ETLRuntimes.bat Name_of_dataset
+
+**Returns:** The output will show the total run-times recorded in log files for the user-specified ETL. The output is displayed in the command prompt window.
 
 Show today's ETL logs
 ---------------------
@@ -76,6 +98,16 @@ Show today's ETL logs
 
 **Returns:** The output will show the list of log files which were generated today. With the *-e* parameter, a group of datasets specified in a parameter at the beginning of the script will be excluded (generally, those that run frequently and would clutter the output). The output is displayed in the terminal.
 
+**File:** Log/A_TodayLogs.bat (Windows only)
+
+**Description:** Shows log files which were created today
+
+**Usage:** Open the command prompt window and run the command::
+
+	> sh \path\to\directory\open-data-etl-utility-kit\Log\A_TodayLogs.bat [-e]
+
+**Returns:** The output will show the list of log files which were generated today. With the *-e* parameter, a group of datasets specified in a parameter at the beginning of the script will be excluded (generally, those that run frequently and would clutter the output). The output is displayed in the command prompt window.
+
 Run a specific ETL
 ---------------------
 
@@ -87,5 +119,17 @@ Run a specific ETL
 
 	$ cd /path/to/directory/open-data-etl-utility-kit/
 	$ sh Log/A_RunETL.sh Name_of_dataset
+
+**Returns:** The script will find and run the ETL command for the specified dataset. The output will show the command run so the user can confirm it was the intended dataset ETL.
+
+
+**File:** Log/A_RunETL.bat (Windows only)
+
+**Description:** Performs a one-time run of an ETL normally run on a scheduled basis through by the Windows task scheduler.  This file need not be in the Log directory to run correctly.  It does not use the log files and is in the Log directory only to keep it with other scripts.
+
+**Usage:** Open the terminal and type the name of a dataset::
+
+	$ cd \path\to\directory\open-data-etl-utility-kit\
+	$ Log\A_RunETL.bat Name_of_dataset
 
 **Returns:** The script will find and run the ETL command for the specified dataset. The output will show the command run so the user can confirm it was the intended dataset ETL.

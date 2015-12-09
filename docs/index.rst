@@ -1,6 +1,6 @@
-===============================
-Open Data ETL Toolkit |release|
-===============================
+=====================
+Open Data ETL Toolkit
+=====================
 
 .. toctree::
    :maxdepth: 1

@@ -93,6 +93,7 @@
     <partitionschemas>
     </partitionschemas>
     <slaveservers>
+         <slaveserver><name>ETL</name><hostname>10.96.12.40</hostname><port>8080</port><webAppName/><username>jlevy</username><password>Encrypted 2be98afc86af4858da51efc43db868af6</password><proxy_hostname/><proxy_port/><non_proxy_hosts/><master>N</master></slaveserver>
     </slaveservers>
     <clusterschemas>
     </clusterschemas>
@@ -268,19 +269,19 @@ if (!(Data_Sync_ETL == &quot;Y&quot;))
            </partitioning>
     <fields>
       <field>
-        <name>result</name>
+        <name>previous_job_entry_result</name>
         <type>previous result result</type>
         </field>
       <field>
-        <name>exit_status</name>
+        <name>previous_job_entry_exit_status</name>
         <type>previous result exist status</type>
         </field>
       <field>
-        <name>nr</name>
+        <name>previous_job_entry_nr</name>
         <type>previous result entry nr</type>
         </field>
       <field>
-        <name>stopped</name>
+        <name>previous_job_entry_stopped</name>
         <type>previous result is stopped</type>
         </field>
       <field>
@@ -582,7 +583,7 @@ if (!(Data_Sync_ETL == &quot;Y&quot;))
         <jsScript_script>&#47;&#47;Script here
 
 
-if (result==true &amp;&amp; (DataSyncExitValue==0 || !(Data_Sync_ETL == &quot;Y&quot;)))
+if (previous_job_entry_result==true &amp;&amp; (DataSyncExitValue==0 || !(Data_Sync_ETL == &quot;Y&quot;)))
 {ETL_Status = &quot;Success&quot;}
 else
 {ETL_Status = &quot;Failure&quot;};

@@ -117,7 +117,7 @@ Right-click to insert a new line. Once a blank line is available, add
 directory under value (e.g.,
 ``/path/to/directory/open-data-utility-kit``).
 
-Add another line and enter ``DATASYNC_DIRECTORY`` as a variable name
+Add another line and enter ``DATA_SYNC_DIRECTORY`` as a variable name
 and ``/path/to/directory/open-data-utility-kit/DataSync``
 
 .. image:: images/kettle.properties_configuration_nix.PNG

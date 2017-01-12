@@ -173,7 +173,7 @@ version number (e.g., 4.4.0).
 Create a link between ``data-integration`` and the current version::
 
 	> cd C:\path\to\directory\open-data-etl-utility-kit
-	> mklink /j "data-integration-x.y.z" "data-integration"
+	> mklink /j "data-integration" "data-integration-x.y.z"
 
 A future version of Kettle can be installed and tested in its own directory without impacting production. Once ETLs are ready to use a newer version, update the symlink to the appropriate directory.
 

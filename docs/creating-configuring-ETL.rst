@@ -64,7 +64,7 @@ typically along the following lines:
 
 Move the DataSync configuration template file (``_control.json``) to the new directory, renaming it in the process::
 
-	$ cp _config.json ETL/Data_Set_Name_abcd-1234/Data_Set_Name_control.json
+	$ cp _control.json ETL/Data_Set_Name_abcd-1234/Data_Set_Name_control.json
 
 Edit the configuration file by inserting the appropriate API field
 names.

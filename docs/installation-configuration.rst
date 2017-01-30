@@ -120,7 +120,7 @@ directory under value (e.g.,
 Add another line and enter ``DATA_SYNC_DIRECTORY`` as a variable name
 and ``/path/to/directory/open-data-utility-kit/DataSync``
 
-.. image:: images/kettle.properties_configuration_nix.PNG
+.. image:: images/kettle.properties_configuration_nix_EDIT.PNG
    :alt: Configuring kettle.properties on MacOS X/Linux/Unix
 
 The ``kettle.properties`` file can also be manually edited. It is
